@@ -15,10 +15,13 @@ public class MyDodo extends Dodo
     }
 
     public void act() {
-        move (1);
-        turn(180);
-        move (1);
+     {
+        turn (180);
         turn (1);
+        
+        
+        
+        }
         
     }
 
@@ -33,7 +36,7 @@ public class MyDodo extends Dodo
         if ( canMove() ) {
             step();
         } else {
-            showError( "I'm stuck!" );
+            showError( "I'm stuck!");
         }
     }
 
@@ -93,8 +96,9 @@ public class MyDodo extends Dodo
     public void jump( int distance ) {
         int nrStepsTaken = 0;               // set counter to 0
         while ( nrStepsTaken < distance ) { // check if more steps must be taken  
-            move();                         // take a step
+            move(1);   // take a step
             nrStepsTaken++;                 // increment the counter
+            System.out.print("hello" );
         }
     }
 
@@ -129,10 +133,10 @@ public class MyDodo extends Dodo
      */
 
     public boolean canLayEgg( ){
-//        if( onEgg() ){
-            // E
-//        }else{
+        if( onEgg() ){
+             return false;
+        }else{
             return true;
-//        }
+        }
     }  
 }
