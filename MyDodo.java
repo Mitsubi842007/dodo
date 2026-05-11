@@ -35,6 +35,9 @@ public class MyDodo extends Dodo
     public void move() {
         if ( canMove() ) {
             step();
+            turn (90);
+            move (1);
+            turn (180);
         } else {
             showError( "I'm stuck!");
         }
