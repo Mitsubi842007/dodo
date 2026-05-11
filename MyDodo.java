@@ -16,8 +16,8 @@ public class MyDodo extends Dodo
 
     public void act() {
      {
-        turn (180);
         turn (1);
+       
         
         
         
@@ -98,7 +98,7 @@ public class MyDodo extends Dodo
         while ( nrStepsTaken < distance ) { // check if more steps must be taken  
             move(1);   // take a step
             nrStepsTaken++;                 // increment the counter
-            System.out.print("hello" );
+            System.out.print("    i moved" );
         }
     }
 
@@ -115,8 +115,10 @@ public class MyDodo extends Dodo
 
     public void walkToWorldEdgePrintingCoordinates( ){
         while( ! borderAhead() ){
-            // print coordinates
-            move();
+             //print coordinates;
+             System.out.println(super.getX() + " "+ super.getY() );
+             turn (90);
+            move( );
         }
     }
 
