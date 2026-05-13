@@ -35,9 +35,7 @@ public class MyDodo extends Dodo
     public void move() {
         if ( canMove() ) {
             step();
-            turn (90);
-            move (1);
-            turn (180);
+        
         } else {
             showError( "I'm stuck!");
         }
@@ -120,7 +118,6 @@ public class MyDodo extends Dodo
         while( ! borderAhead() ){
              //print coordinates;
              System.out.println(super.getX() + " "+ super.getY() );
-             turn (90);
             move( );
         }
     }
@@ -144,4 +141,18 @@ public class MyDodo extends Dodo
             return true;
         }
     }  
+public void climbOverFence()
+{
+      turnLeft();
+      move();
+    turnRight();
+     move();
+      move();
+      turnRight();
+      move();
+      turnLeft();
+    
+    
+    
+}
 }
