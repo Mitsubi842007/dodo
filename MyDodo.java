@@ -16,7 +16,7 @@ public class MyDodo extends Dodo
 
     public void act() {
      {
-        turn (1);
+        climbOverFence();
        
         
         
@@ -154,5 +154,26 @@ public void climbOverFence()
     
     
     
+}
+//it checks if theres grain on the ground 
+//and needs to move back again after it checks if theres grain
+public boolean grainAhead()
+{
+    move();
+
+    if (isTouching(Grain.class))
+    {
+        turnRight();
+        turnRight();
+        move();
+        turnRight();
+        turnRight();
+        return true;
+    }
+    else
+    {
+        System.out.println("There's no grain");
+        return false;
+    }
 }
 }
