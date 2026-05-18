@@ -119,6 +119,8 @@ public class MyDodo extends Dodo
              //print coordinates;
              System.out.println(super.getX() + " "+ super.getY() );
             move( );
+            turnLeft();
+            turnLeft();
         }
     }
 
@@ -142,6 +144,7 @@ public class MyDodo extends Dodo
         }
     }  
 public void climbOverFence()
+// if theres a fench infront of the dodo then he will make a turn to get over the fence instead of going forward
 {
       turnLeft();
       move();
@@ -171,9 +174,17 @@ public boolean grainAhead()
         return true;
     }
     else
+    //if theres no grain it wont will return to its place because the grain aint there
     {
         System.out.println("There's no grain");
         return false;
     }
+}
+
+public void gotoEgg () {
+ while (!onEgg()) {
+    move();
+//walks constant until he reached the egg if theres an egg infront of him he stops on it
+}
 }
 }
