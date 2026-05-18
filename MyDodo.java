@@ -114,15 +114,12 @@ public class MyDodo extends Dodo
      *              Coordinates of each cell printed in the console.
      */
 
-    public void walkToWorldEdgePrintingCoordinates( ){
-        while( ! borderAhead() ){
-             //print coordinates;
-             System.out.println(super.getX() + " "+ super.getY() );
-            move( );
-            turnLeft();
-            turnLeft();
-        }
+    public void walkToWorldEdgePrintingCoordinates() {
+    while (!borderAhead()) {
+        move();
+        //walks till it arrives to the end of the map
     }
+}
 
     /**
      * Test if Dodo can lay an egg.
