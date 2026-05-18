@@ -16,9 +16,9 @@ public class MyDodo extends Dodo
 
     public void act() {
      {
-        climbOverFence();
-       
-        
+        //climbOverFence();
+       turnLeft ();
+        turnLeft ();
         
         
         }
@@ -116,9 +116,17 @@ public class MyDodo extends Dodo
 
     public void walkToWorldEdgePrintingCoordinates() {
     while (!borderAhead()) {
-        move();
+        move(); 
         //walks till it arrives to the end of the map
     }
+}
+    public void goBackToStartOfRowAndFaceBack () {
+    turnLeft();
+    turnLeft();
+    walkToWorldEdgePrintingCoordinates();
+  turnLeft();
+  turnLeft();
+  //walks backwards instead of walks to the front
 }
 
     /**
@@ -184,4 +192,5 @@ public void gotoEgg () {
 //walks constant until he reached the egg if theres an egg infront of him he stops on it
 }
 }
+
 }
