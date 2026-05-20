@@ -126,10 +126,30 @@ public class MyDodo extends Dodo
         move(); 
         if (fenceAhead()){ 
             climbOverFence( );
+            //walks over the fences if theres a fence ahead
         }
     }
     
 }
+public void pickUpGrainsAndPrintCoordinates(){
+  while (!borderAhead()) {
+        //picks up grain when walking straight and prints coordinates
+        if (onGrain()) {
+            System.out.println(getX() + ", " + getY());
+            pickUpGrain();
+        }
+
+        move();
+    }
+
+    //picks up also the last 
+    if (onGrain()) {
+        System.out.println(getX() + ", " + getY());
+        pickUpGrain();
+    }
+}
+
+
     public void goBackToStartOfRowAndFaceBack () {
     turnLeft();
     turnLeft();
