@@ -158,6 +158,15 @@ public void pickUpGrainsAndPrintCoordinates(){
   turnLeft();
   //walks backwards instead of walks to the front
 }
+public void stepOneCellBackwards() {
+    turnRight();
+    turnRight();
+
+    move();
+
+    turnRight();
+    turnRight();
+}
 
     /**
      * Test if Dodo can lay an egg.
@@ -198,7 +207,9 @@ public void climbOverFence()
 //and needs to move back again after it checks if theres grain
 public boolean grainAhead()
 {
+    stepOneCellBackwards();
     move();
+    
 
     if (isTouching(Grain.class))
     {
