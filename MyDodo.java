@@ -118,7 +118,17 @@ public class MyDodo extends Dodo
     while (!borderAhead()) {
         move(); 
         //walks till it arrives to the end of the map
+        
     }
+}
+ public void walkToWorldEdgeClimbingOverFences() {
+    while (!borderAhead()) {
+        move(); 
+        if (fenceAhead()){ 
+            climbOverFence( );
+        }
+    }
+    
 }
     public void goBackToStartOfRowAndFaceBack () {
     turnLeft();
@@ -163,6 +173,7 @@ public void climbOverFence()
     
     
 }
+
 //it checks if theres grain on the ground 
 //and needs to move back again after it checks if theres grain
 public boolean grainAhead()
