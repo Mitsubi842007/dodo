@@ -131,6 +131,15 @@ public class MyDodo extends Dodo
     }
     
 }
+ public void walkToWorldEdgeLayEgg() {
+    while (!borderAhead()) {
+        move();
+        if (onNest()) {
+            layEgg();
+            
+        }
+    }  
+}
 public void pickUpGrainsAndPrintCoordinates(){
   while (!borderAhead()) {
         //picks up grain when walking straight and prints coordinates
