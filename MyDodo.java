@@ -240,6 +240,30 @@ public boolean grainAhead()
     }
 }
 
+public void walkAroundFenceArea ()
+{
+move();
+move();
+move();
+turnRight();
+move();
+move();
+move();
+move();
+turnRight();
+move();
+move();
+move();
+move();
+turnRight();
+move();
+move();
+move();
+turnRight();
+
+}
+
+
 public void gotoEgg () {
  while (!onEgg()) {
     move();
