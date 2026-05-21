@@ -121,15 +121,18 @@ public class MyDodo extends Dodo
         
     }
 }
- public void walkToWorldEdgeClimbingOverFences() {
-    while (!borderAhead()) {
-        move(); 
-        if (fenceAhead()){ 
-            climbOverFence( );
-            //walks over the fences if theres a fence ahead
-        }
+ public void walkToWorldEdgeClimbingOverFences(){
+        while( ! borderAhead()     && !onNest()){
+
+       if (fenceAhead()){ 
+          climbOverFence();
+        } else {
+        move();
     }
-    
+    if (onNest()){
+        layEgg();
+    }
+}
 }
  public void walkToWorldEdgeLayEgg() {
     while (!borderAhead()) {
