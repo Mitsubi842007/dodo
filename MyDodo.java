@@ -132,6 +132,7 @@ public class MyDodo extends Dodo
             }
         }
     }
+    
 
     public void walkToWorldEdgeLayEgg() {
         while (!borderAhead()) {
@@ -269,6 +270,20 @@ public class MyDodo extends Dodo
             }
         }
     }
+ public void walkAroundMazeArea ()
+    {
+        //turn right
+        //controlls if theres a fence if true then turn left 
+        //go forward
 
+        while(!onNest()){ 
+            turnRight();
+            while(fenceAhead()){
+                turnLeft();
+
+            }
+            move();
+        }
+    }
 }
 
