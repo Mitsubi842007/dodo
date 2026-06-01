@@ -132,7 +132,6 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
 
     public void walkToWorldEdgeLayEgg() {
         while (!borderAhead()) {
@@ -260,7 +259,7 @@ public class MyDodo extends Dodo
     /**
      * Walks and follow eggs and stops at a nest
      */
-   public void eggTrailToNest() {
+    public void eggTrailToNest() {
         while(!onNest()) {
             if(eggAhead() || nestAhead()) {
                 move();
@@ -270,7 +269,8 @@ public class MyDodo extends Dodo
             }
         }
     }
- public void walkAroundMazeArea ()
+
+    public void walkAroundMazeArea ()
     {
         //turn right
         //controlls if theres a fence if true then turn left 
@@ -283,6 +283,42 @@ public class MyDodo extends Dodo
 
             }
             move();
+        }
+    }
+
+    public void faceEast()
+    {
+        while(getDirection() != EAST){
+            turnRight();
+        }
+    }
+
+    public void faceWest()
+    {
+        while(getDirection() != WEST){
+            turnRight();
+        }
+    }
+
+    public void faceSouth()
+    {
+        while(getDirection() != SOUTH){
+            turnRight();
+        }
+    }
+
+    public void faceNorth()
+    {
+        while(getDirection() != NORTH){
+            turnRight();
+        }
+    }
+
+    public void faceDirection(int direction) {
+        if (direction >= 0 && direction <= 3) {
+            while (getDirection() != direction) {
+                turnRight();
+            }
         }
     }
 }
