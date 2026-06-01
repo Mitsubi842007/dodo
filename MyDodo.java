@@ -259,45 +259,15 @@ public class MyDodo extends Dodo
     /**
      * Walks and follow eggs and stops at a nest
      */
-    public void eggTrailToNest() {
-        if (!nestAhead()){
-        moveToNextEgg();
+   public void eggTrailToNest() {
+        while(!onNest()) {
+            if(eggAhead() || nestAhead()) {
+                move();
+                turnLeft();
+            } else {
+                turnRight();
+            }
         }
-        else if(onNest()){
-        onNest();
-        }
-
-        while (!onNest()) {
-            moveToNextEgg();
-        }
-        
-
-    }
-
-    private void moveToNextEgg() {
-        if (eggAhead()) {
-            move();
-        } else if (eggLeft()) {
-            turnLeft();
-            move();
-        } else if (eggRight()) {
-            turnRight();
-            move();
-        }
-    }
-
-    private boolean eggLeft() {
-        turnLeft();
-        boolean found = eggAhead();
-        turnRight();
-        return found;
-    }
-
-    private boolean eggRight() {
-        turnRight();
-        boolean found = eggAhead();
-        turnLeft();
-        return found;
     }
 
 }
