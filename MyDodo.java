@@ -360,12 +360,10 @@ public class MyDodo extends Dodo
     public int countEggsInRow() {
         int eggCount = 0;
 
-        // Tel ei op de startpositie
         if (onEgg()) {
             eggCount++;
         }
 
-        // Loop naar het einde van de rij en tel eieren
         while (!borderAhead()) {
             move();
 
@@ -374,15 +372,30 @@ public class MyDodo extends Dodo
             }
         }
 
-        // Ga terug naar het begin van de rij
         goBackToStartOfRowAndFaceBack();
 
         return eggCount;
     }
-/**
+
+    /**
      *makes a trail of eggs
      */
-    public void layTrailOfEggs ()  {
+    public void layTrailOfEggs (int numEgg)  {
+        if (numEgg <= getWorld().getWidth() ){
+            for (int index = 0; index < numEgg; index++) {
+                if (!onEgg()) {
+                    layEgg();
+                }
+                move();
+                if (borderAhead()) {
+                    index = numEgg;
+                }
+            }
+            layEgg();
+        } else {
+            System.out.println ("error" );
+        }
+
     }
 }
 
