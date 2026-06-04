@@ -286,6 +286,9 @@ public class MyDodo extends Dodo
         }
     }
 
+    /**
+     *looks at right (default) 
+     */
     public void faceEast()
     {
         while(getDirection() != EAST){
@@ -293,6 +296,9 @@ public class MyDodo extends Dodo
         }
     }
 
+    /**
+     *looks at left 
+     */
     public void faceWest()
     {
         while(getDirection() != WEST){
@@ -300,6 +306,9 @@ public class MyDodo extends Dodo
         }
     }
 
+    /**
+     *looks down
+     */
     public void faceSouth()
     {
         while(getDirection() != SOUTH){
@@ -307,6 +316,9 @@ public class MyDodo extends Dodo
         }
     }
 
+    /**
+     *looks up
+     */
     public void faceNorth()
     {
         while(getDirection() != NORTH){
@@ -314,12 +326,63 @@ public class MyDodo extends Dodo
         }
     }
 
+    /**
+     *you can type what direction u want to look at 
+     */
     public void faceDirection(int direction) {
         if (direction >= 0 && direction <= 3) {
             while (getDirection() != direction) {
                 turnRight();
             }
         }
+    }
+
+    /**
+     *shows error if you type a wrong coordinate 
+     */
+    public boolean validCoordinates(int x, int y) {
+        if (x < 0 || x >= getWorld().getWidth() ||
+        y < 0 || y >= getWorld().getHeight()) {
+
+            showError("Invalid coordinates");
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * counts egg on the current row
+     * after counting the eggs the dodo returns back to the first potsition
+     * after counting and back on original place it then says how many eggs was at that row 
+     */
+
+    public int countEggsInRow() {
+        int eggCount = 0;
+
+        // Tel ei op de startpositie
+        if (onEgg()) {
+            eggCount++;
+        }
+
+        // Loop naar het einde van de rij en tel eieren
+        while (!borderAhead()) {
+            move();
+
+            if (onEgg()) {
+                eggCount++;
+            }
+        }
+
+        // Ga terug naar het begin van de rij
+        goBackToStartOfRowAndFaceBack();
+
+        return eggCount;
+    }
+/**
+     *makes a trail of eggs
+     */
+    public void layTrailOfEggs ()  {
     }
 }
 
