@@ -329,26 +329,37 @@ public class MyDodo extends Dodo
     /**
      *you can type what direction u want to look at 
      */
-    public void faceDirection(int direction) {
-        if (direction >= 0 && direction <= 3) {
-            while (getDirection() != direction) {
-                turnRight();
-            }
-        }
+    /**
+     * Checks if Dodo has reached the given coordinates.
+     */
+    public boolean locationReached(int x, int y) {
+        return getX() == x && getY() == y;
     }
 
     /**
-     *shows error if you type a wrong coordinate 
+     * Moves Dodo to the given coordinates.
      */
-    public boolean validCoordinates(int x, int y) {
-        if (x < 0 || x >= getWorld().getWidth() ||
-        y < 0 || y >= getWorld().getHeight()) {
+    public void goToLocation(int coordX, int coordY) {
 
-            showError("Invalid coordinates");
-            return false;
+        while (!locationReached(coordX, coordY)) {
+
+            if (getX() < coordX) {
+                setDirection(EAST);
+                move();
+            }
+            else if (getX() > coordX) {
+                setDirection(WEST);
+                move();
+            }
+            else if (getY() < coordY) {
+                setDirection(SOUTH);
+                move();
+            }
+            else if (getY() > coordY) {
+                setDirection(NORTH);
+                move();
+            }
         }
-
-        return true;
     }
 
     /**
@@ -356,7 +367,6 @@ public class MyDodo extends Dodo
      * after counting the eggs the dodo returns back to the first potsition
      * after counting and back on original place it then says how many eggs was at that row 
      */
-
     public int countEggsInRow() {
         int eggCount = 0;
 
@@ -369,6 +379,7 @@ public class MyDodo extends Dodo
 
             if (onEgg()) {
                 eggCount++;
+
             }
         }
 
@@ -396,6 +407,26 @@ public class MyDodo extends Dodo
             System.out.println ("error" );
         }
 
+    }
+
+    /**
+     * when at top row 1 column 1 
+     *step 1 walks to the end of the row then comes back to original spot
+     *step 1.1 when on egg he counts it for later
+     *step 2 after that the dodo looks down and move to the spot and faced back to the right 
+     *step 3 dodo then redo the step 1 and 2 again
+     * when reached all rows and collums he gives the total count of all eggs
+     */
+    public int countEggsInWorld() {
+        int total = 0;
+
+        for (int row = 0; row < getWorld().getHeight(); row++) {
+            goToLocation(0, row);
+            faceEast();
+            total += countEggsInRow();
+        }
+
+        return total;
     }
 }
 
