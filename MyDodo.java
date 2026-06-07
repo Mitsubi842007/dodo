@@ -410,23 +410,34 @@ public class MyDodo extends Dodo
     }
 
     /**
-     * when at top row 1 column 1 
-     *step 1 walks to the end of the row then comes back to original spot
-     *step 1.1 when on egg he counts it for later
-     *step 2 after that the dodo looks down and move to the spot and faced back to the right 
-     *step 3 dodo then redo the step 1 and 2 again
-     * when reached all rows and collums he gives the total count of all eggs
+     *goes to a row with the most eggs (will first count all eggs first from all row)
      */
-    public int countEggsInWorld() {
-        int total = 0;
+    public void goToRowWithMostEggs() {
+        int bestRow = 0;
+        int mostEggs = 0;
 
         for (int row = 0; row < getWorld().getHeight(); row++) {
-            goToLocation(0, row);
-            faceEast();
-            total += countEggsInRow();
+
+            int eggs = 0;
+
+            for (int col = 0; col < getWorld().getWidth(); col++) {
+                goToLocation(col, row);
+
+                if (onEgg()) {
+                    eggs++;
+                }
+            }
+
+            if (eggs > mostEggs) {
+                mostEggs = eggs;
+                bestRow = row;
+            }
         }
 
-        return total;
+        System.out.println("Row with most eggs: " + bestRow);
+
+        // Go to the row with the most eggs as end position
+        goToLocation(0, bestRow);
     }
 }
 
