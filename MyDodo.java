@@ -516,5 +516,26 @@ public class MyDodo extends Dodo
         }
 
     }
+    /**
+     *looks to the average eggs amount at each row
+     */
+    public double averageEggAmount() {
+        int rowAmount = getWorld().getHeight();
+        int totalEggs = 0;
+
+        for (int row = 0; row < rowAmount; row++) {
+            goToLocation(0, row);
+            faceDirection(1);
+            totalEggs += countEggsInRow();
+        }
+
+        double average = (double) totalEggs / rowAmount;
+        System.out.println("Average amount of eggs per row: " + average);
+
+        goToLocation(0, 0);
+        faceDirection(1);
+        return average;
+    }
 }
+
 
