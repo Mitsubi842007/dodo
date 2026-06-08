@@ -449,6 +449,9 @@ public class MyDodo extends Dodo
         goToLocation(0, bestRow);
     }
 
+    /**
+     *makes a stair made of eggs 
+     */
     public void eggMonument() {
         int x = getX();
         int y = getY();
@@ -464,8 +467,14 @@ public class MyDodo extends Dodo
             }
             row++;
         }
+        if(borderAhead() ){
+            int locationReached;
+        }
     }
 
+    /**
+     *keeps multiplying eggs till it reached the last row
+     */
     public void solidMonument() {
         int x = getX();
         int y = getY();
@@ -483,6 +492,29 @@ public class MyDodo extends Dodo
             row++;
             eggs = eggs * 2;
         }
+        if(borderAhead() ){
+            int locationReached;
+        }
+    }
+
+    /**
+     *makes a pyramid made of eggs 
+     */
+    public void eggPyramid() {
+        int x = getX();
+        int y = getY();
+        int numberOfRows = getWorld().getHeight() - y;
+
+        for (int row = 0; row < numberOfRows; row++) {
+            for (int col = -row; col <= row; col++) {
+                goToLocation(x + col, y + row);
+                if (canLayEgg()) {
+                    layEgg();
+
+                }
+            }
+        }
+
     }
 }
 

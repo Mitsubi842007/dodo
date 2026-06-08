@@ -226,5 +226,6 @@ public class Mauritius extends World
      */
     private void prepare()
     {
+        saveToFile();
     }
 }
