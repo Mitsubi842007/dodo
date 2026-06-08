@@ -465,5 +465,24 @@ public class MyDodo extends Dodo
             row++;
         }
     }
+
+    public void solidMonument() {
+        int x = getX();
+        int y = getY();
+        int eggs = 1;
+        int row = 0;
+        while (y + row < getWorld().getHeight() && x + row <= getWorld().getWidth()) {
+            goToLocation(x, y + row);
+            faceDirection(1);
+            for (int i = 0; i < eggs; i++) {
+                layEgg();
+                if (i < eggs - 1) { 
+                    move(); 
+                }
+            }
+            row++;
+            eggs = eggs * 2;
+        }
+    }
 }
 
