@@ -362,6 +362,15 @@ public class MyDodo extends Dodo
         }
     }
 
+    public void faceDirection(int direction) {
+        if (direction >= 0 && direction <= 3)
+        {
+            while (getDirection() !=direction){
+                turnRight();
+            }
+        }
+    }
+
     /**
      * counts egg on the current row
      * after counting the eggs the dodo returns back to the first potsition
@@ -438,6 +447,23 @@ public class MyDodo extends Dodo
 
         // Go to the row with the most eggs as end position
         goToLocation(0, bestRow);
+    }
+
+    public void eggMonument() {
+        int x = getX();
+        int y = getY();
+        int row = 0;
+        while (y + row < getWorld().getHeight() && x + row < getWorld().getWidth()) {
+            goToLocation(x, y + row);
+            faceDirection(1);
+            for (int i = 0; i <= row; i++) {
+                layEgg();
+                if (i < row) { 
+                    move();
+                }
+            }
+            row++;
+        }
     }
 }
 
