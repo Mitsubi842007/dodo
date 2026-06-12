@@ -72,6 +72,9 @@ comment32.text=\r\nmakes\ a\ pyramid\ made\ of\ eggs\ \r\n
 comment33.params=
 comment33.target=double\ averageEggAmount()
 comment33.text=\r\nlooks\ to\ the\ average\ eggs\ amount\ at\ each\ row\r\n
+comment34.params=
+comment34.target=void\ algoritme()
+comment34.text=\r\nlooks\ at\ the\ first\ row\ by\ going\ to\ the\ end\ of\ the\ border\ \r\nafter\ looking\ at\ the\ end\ of\ the\ row\ mimi\ then\ goes\ back\ to\ original\ place\r\nafter\ going\ to\ original\ place\ then\ turns\ 90\ degree\ (looking\ down)\r\nmove\ one\ collumn\ then\ 90\ degree\ again\ but\ this\ time\ turn\ left\ (looking\ right)\r\nthen\ checks\ the\ whole\ row\ again\ and\ then\ another\ go\ back\ to\ original\ place\r\nafter\ that\ repeat\ the\ same\ step\ till\ last\ row.\r\n\r\n\ \r\nuse\ countEggs,\ %,\ if,\ \r\n\r\nif\ eggsInRow%2\ \=\=\ 1\ then\ remember\ row,\ go\ to\ location\ under\ then\ look\ east.\r\ngetWorldHeight\ and\ getWorldWidth\r\n
 comment4.params=
 comment4.target=boolean\ canMove()
 comment4.text=\r\n\ Test\ if\ Dodo\ can\ move\ forward,\ (there\ are\ no\ obstructions\r\n\ \ \ \ or\ end\ of\ world\ in\ the\ cell\ in\ front\ of\ her).\r\n\ \r\n\ <p>\ Initial\:\ Dodo\ is\ somewhere\ in\ the\ world\r\n\ <p>\ Final\:\ \ \ Same\ as\ initial\ situation\r\n\ \r\n\ @return\ boolean\ true\ if\ Dodo\ can\ move\ (no\ obstructions\ ahead)\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false\ if\ Dodo\ can't\ move\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (an\ obstruction\ or\ end\ of\ world\ ahead)\r\n
@@ -89,4 +92,4 @@ comment8.target=void\ walkToWorldEdgePrintingCoordinates()
 comment8.text=\r\n\ Walks\ to\ edge\ of\ the\ world\ printing\ the\ coordinates\ at\ each\ step\r\n\ \r\n\ <p>\ Initial\:\ Dodo\ is\ on\ West\ side\ of\ world\ facing\ East.\r\n\ <p>\ Final\:\ \ \ Dodo\ is\ on\ East\ side\ of\ world\ facing\ East.\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ Coordinates\ of\ each\ cell\ printed\ in\ the\ console.\r\n
 comment9.params=
 comment9.target=void\ walkToWorldEdgeClimbingOverFences()
-numComments=34
+numComments=35

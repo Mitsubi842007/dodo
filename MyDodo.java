@@ -516,6 +516,7 @@ public class MyDodo extends Dodo
         }
 
     }
+
     /**
      *looks to the average eggs amount at each row
      */
@@ -536,6 +537,33 @@ public class MyDodo extends Dodo
         faceDirection(1);
         return average;
     }
+
+    /**
+     *looks at the first row by going to the end of the border 
+     *after looking at the end of the row mimi then goes back to original place
+     *after going to original place then turns 90 degree (looking down)
+     *move one collumn then 90 degree again but this time turn left (looking right)
+     *then checks the whole row again and then another go back to original place
+     *after that repeat the same step till last row.
+     *
+     * 
+     *use countEggs, %, if, 
+     *
+     *if eggsInRow%2 == 1 then remember row, go to location under then look east.
+     *getWorldHeight and getWorldWidth
+     */
+    public void algoritme ()
+    {
+        int findWrongEggRow = -1;
+        goToLocation (0,0);
+        faceEast();
+        int eggsInRow=countEggsInRow();
+        if (eggsInRow  %2 ==1)
+        {
+            findWrongEggRow = getY();
+        }
+       ;
+       
+    }
+
 }
-
-
