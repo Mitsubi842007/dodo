@@ -545,8 +545,6 @@ public class MyDodo extends Dodo
      *move one collumn then 90 degree again but this time turn left (looking right)
      *then checks the whole row again and then another go back to original place
      *after that repeat the same step till last row.
-     *
-     * 
      *use countEggs, %, if, 
      *
      *if eggsInRow%2 == 1 then remember row, go to location under then look east.
@@ -554,6 +552,8 @@ public class MyDodo extends Dodo
      */
     public void algoritme ()
     {
+        int totalEggs = 0;
+        int rowAmount = getWorld().getHeight();
         int findWrongEggRow = -1;
         goToLocation (0,0);
         faceEast();
@@ -561,9 +561,20 @@ public class MyDodo extends Dodo
         if (eggsInRow  %2 ==1)
         {
             findWrongEggRow = getY();
-        }
-       ;
-       
-    }
 
+        }
+        for (int row = 0; row < rowAmount; row++) {
+            goToLocation(0, row);
+            faceDirection(1);
+            totalEggs += countEggsInRow();
+        }
+        faceSouth();
+        faceEast();
+        for (int col = 0; col < rowAmount; col++) {
+            goToLocation(col, 0);
+            faceDirection(2);
+            totalEggs += countEggsInRow();
+        }
+
+    }
 }
