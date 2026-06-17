@@ -573,7 +573,7 @@ public class MyDodo extends Dodo
         int rowAmount = getWorld().getHeight(); 
         int findWrongEggRow = -1; 
         goToLocation (0,0); 
-        faceEast(); 
+        
         for (int row = 0; row < rowAmount; row++) 
         { goToLocation(0, row);
             faceDirection(1); 
@@ -582,20 +582,18 @@ public class MyDodo extends Dodo
                 findWrongEggRow = getY(); 
             } 
         } 
-      
-        
+
         // iedere kolom
         int columAmount = getWorld().getWidth(); 
         int findWrongEggColum = -1; 
-        faceSouth(); 
-        faceEast(); 
+        
         for (int col = 0; col < columAmount; col++) { 
             goToLocation(col, 0); 
             faceDirection(2); 
             int totalEggs = countEggsInRow();
             if (countEggsInRow() %2 ==1) { 
-                 findWrongEggColum = getX(); 
-              //  getWorld().addObject(new GoldenEgg(), getX(), getY());
+                findWrongEggColum = getX(); 
+              
             }
 
         } 
