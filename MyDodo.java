@@ -569,7 +569,9 @@ public class MyDodo extends Dodo
      *getWorldHeight and getWorldWidth
      */
     public void algoritme () { 
-        // iedere rij
+        
+        
+        // for each row
         int rowAmount = getWorld().getHeight(); 
         int findWrongEggRow = -1; 
         goToLocation (0,0); 
@@ -583,7 +585,7 @@ public class MyDodo extends Dodo
             } 
         } 
 
-        // iedere kolom
+        // for each columm
         int columAmount = getWorld().getWidth(); 
         int findWrongEggColum = -1; 
         
@@ -599,7 +601,7 @@ public class MyDodo extends Dodo
         } 
         goToLocation(4,3);
         layEgg();
-        // ga naar de plek waar kolom EN rij stuk is
+        // go to the wrong columm or row
     }
 
 }
