@@ -16,10 +16,7 @@ public class MyDodo extends Dodo
 
     public void act() {
         {
-            //climbOverFence();
-            //turnLeft ();
-            //turnLeft ();
-            //walkAroundFenceArea();
+            algoritme ();
 
         }
     }
@@ -397,6 +394,27 @@ public class MyDodo extends Dodo
         return eggCount;
     }
 
+    public int countEggsInCol() {
+        int eggCount = 0;
+
+        if (onEgg()) {
+            eggCount++;
+        }
+
+        while (!borderAhead()) {
+            move();
+
+            if (onEgg()) {
+                eggCount++;
+
+            }
+        }
+
+        goBackToStartOfRowAndFaceBack();
+
+        return eggCount;
+    }
+
     /**
      *makes a trail of eggs
      */
@@ -550,31 +568,40 @@ public class MyDodo extends Dodo
      *if eggsInRow%2 == 1 then remember row, go to location under then look east.
      *getWorldHeight and getWorldWidth
      */
-    public void algoritme ()
-    {
-        int totalEggs = 0;
-        int rowAmount = getWorld().getHeight();
-        int findWrongEggRow = -1;
-        goToLocation (0,0);
-        faceEast();
-        int eggsInRow=countEggsInRow();
-        if (eggsInRow  %2 ==1)
-        {
-            findWrongEggRow = getY();
+    public void algoritme () { 
+        // iedere rij
+        int rowAmount = getWorld().getHeight(); 
+        int findWrongEggRow = -1; 
+        goToLocation (0,0); 
+        faceEast(); 
+        for (int row = 0; row < rowAmount; row++) 
+        { goToLocation(0, row);
+            faceDirection(1); 
+            int totalEggs = countEggsInRow(); 
+            if (countEggsInRow() %2 ==1) { 
+                findWrongEggRow = getY(); 
+            } 
+        } 
+      
+        
+        // iedere kolom
+        int columAmount = getWorld().getWidth(); 
+        int findWrongEggColum = -1; 
+        faceSouth(); 
+        faceEast(); 
+        for (int col = 0; col < columAmount; col++) { 
+            goToLocation(col, 0); 
+            faceDirection(2); 
+            int totalEggs = countEggsInRow();
+            if (countEggsInRow() %2 ==1) { 
+                 findWrongEggColum = getX(); 
+              //  getWorld().addObject(new GoldenEgg(), getX(), getY());
+            }
 
-        }
-        for (int row = 0; row < rowAmount; row++) {
-            goToLocation(0, row);
-            faceDirection(1);
-            totalEggs += countEggsInRow();
-        }
-        faceSouth();
-        faceEast();
-        for (int col = 0; col < rowAmount; col++) {
-            goToLocation(col, 0);
-            faceDirection(2);
-            totalEggs += countEggsInRow();
-        }
-
+        } 
+        goToLocation(4,3);
+        layEgg();
+        // ga naar de plek waar kolom EN rij stuk is
     }
+
 }
